@@ -223,6 +223,7 @@ public class Utils {
     }
 
     public static void computerPlays(Button[] buttons) {
+        // TODO implement AI for computer plays instead of random
         int random = randInt(0,8);
         int [] bool = Utils.getButtonState(buttons);
         while(bool[random] != 0){
