@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="kreu.morpion" >
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/morpionicon"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".ModesDeJeu"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".OnePlayer"
+            android:label="@string/one_player" >
+        </activity>
+        <activity
+            android:name=".TwoPlayers"
+            android:label="@string/two_player" >
+        </activity>
+    </application>
+
+</manifest>
