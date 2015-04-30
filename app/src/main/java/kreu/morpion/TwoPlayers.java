@@ -34,7 +34,7 @@ public class TwoPlayers extends ActionBarActivity {
 
         compteur = 1;
         Utils.enable(buttons);
-        ((TextView)findViewById(R.id.text_view_current_player)).setText("Player one, your turn");
+        ((TextView)findViewById(R.id.text_view_current_player)).setText("Joueur 1, à vous");
 
 
     }

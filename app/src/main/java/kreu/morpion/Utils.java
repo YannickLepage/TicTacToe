@@ -113,8 +113,10 @@ public class Utils {
         for (int loop = 0; loop < 9; loop++) {
             if (buttons[loop].getText().toString().matches("")) {
                 bool[loop] = 0;
-            } else {
+            } else if (buttons[loop].getText().toString().matches("O")) {
                 bool[loop] = 1;
+            }else{
+                bool[loop] = 2;
             }
         }
 
@@ -223,22 +225,75 @@ public class Utils {
     }
 
     public static void computerPlays(Button[] buttons) {
-        // TODO implement AI for computer plays instead of random
-        int random = randInt(0,8);
+        // TODO Try to refactor and simplify this method
         int [] bool = Utils.getButtonState(buttons);
-        while(bool[random] != 0){
-            random = randInt(0,8);
-            Log.d("random",String.valueOf(random));
+        if(testLine(bool,0,1,2)){
+            buttons[2].setText(R.string.cross);
+        }else if(testLine(bool,0,2,1)){
+            buttons[1].setText(R.string.cross);
+        }else if(testLine(bool,0,3,6)) {
+            buttons[6].setText(R.string.cross);
+        }else if(testLine(bool,0,6,3)) {
+            buttons[3].setText(R.string.cross);
+        }else if(testLine(bool,0,4,8)) {
+            buttons[8].setText(R.string.cross);
+        }else if(testLine(bool,0,8,4)) {
+            buttons[4].setText(R.string.cross);
+        }else if(testLine(bool,1,4,7)) {
+            buttons[7].setText(R.string.cross);
+        }else if(testLine(bool,1,7,4)) {
+            buttons[4].setText(R.string.cross);
+        }else if(testLine(bool,1,3,0)) {
+            buttons[0].setText(R.string.cross);
+        }else if(testLine(bool,2,5,8)) {
+            buttons[8].setText(R.string.cross);
+        }else if(testLine(bool,2,8,5)) {
+            buttons[5].setText(R.string.cross);
+        }else if(testLine(bool,2,4,6)) {
+            buttons[6].setText(R.string.cross);
+        }else if(testLine(bool,3,4,5)) {
+            buttons[5].setText(R.string.cross);
+        }else if(testLine(bool,3,5,4)) {
+            buttons[4].setText(R.string.cross);
+        }else if(testLine(bool,3,6,0)) {
+            buttons[0].setText(R.string.cross);
+        }else if(testLine(bool,4,7,1)) {
+            buttons[1].setText(R.string.cross);
+        }else if(testLine(bool,4,5,3)) {
+            buttons[3].setText(R.string.cross);
+        }else if(testLine(bool,5,8,2)) {
+            buttons[2].setText(R.string.cross);
+        }else if(testLine(bool,6,4,2)) {
+            buttons[2].setText(R.string.cross);
+        }else if(testLine(bool,6,2,4)) {
+            buttons[4].setText(R.string.cross);
+        }else if(testLine(bool,6,7,8)) {
+            buttons[8].setText(R.string.cross);
+        }else if(testLine(bool,6,8,7)) {
+            buttons[7].setText(R.string.cross);
+        }else if(testLine(bool,7,8,6)) {
+            buttons[6].setText(R.string.cross);
+        }else if(testLine(bool,8,4,0)) {
+            buttons[0].setText(R.string.cross);
+        }else{
+            int random = randInt(0, 8);
+            while (bool[random] != 0) {
+                random = randInt(0, 8);
+            }
+            buttons[random].setText(R.string.cross);
+            buttons[random].setEnabled(false);
         }
-        buttons[random].setText(R.string.cross);
-        buttons[random].setEnabled(false);
-
     }
 
     public static void endGame( Button[] buttons, int player, TextView tv, Button button, boolean computer){
         Utils.disable(buttons);
         if(player == 1){
-            tv.setText("Le joueur 1 gagne");
+            if(computer == true){
+                tv.setText("Vous avez gagné");
+            }else{
+                tv.setText("Le joueur 1 gagne");
+            }
+
         }else{
             if(computer){
                 tv.setText("L'ordinateur gagne");
@@ -250,7 +305,7 @@ public class Utils {
     }
 
     public static void tieGame(TextView tv, Button button) {
-        tv.setText("It\'s a tie");
+        tv.setText("Egalité");
         button.setEnabled(true);
     }
 
@@ -271,5 +326,13 @@ public class Utils {
         int randomNum = rand.nextInt((max - min) + 1) + min;
 
         return randomNum;
+    }
+
+    private static boolean testLine(int[] bool, int case1, int case2, int case3){
+
+        if(((bool[case1]==1)||(bool[case1]==2))&&((bool[case2] == bool[case1])&&(bool[case3] == 0))) {
+            return true;
+        }
+        return false;
     }
 }
