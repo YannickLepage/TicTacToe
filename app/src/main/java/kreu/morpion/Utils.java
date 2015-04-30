@@ -229,64 +229,222 @@ public class Utils {
      */
     public static void computerPlays(Button[] buttons) {
         // TODO Try to refactor and simplify this method
-        int [] bool = Utils.getButtonState(buttons);
-        if(testLine(bool,0,1,2)){
-            buttons[2].setText(R.string.cross);
-        }else if(testLine(bool,0,2,1)){
-            buttons[1].setText(R.string.cross);
-        }else if(testLine(bool,0,3,6)) {
-            buttons[6].setText(R.string.cross);
-        }else if(testLine(bool,0,6,3)) {
-            buttons[3].setText(R.string.cross);
-        }else if(testLine(bool,0,4,8)) {
-            buttons[8].setText(R.string.cross);
-        }else if(testLine(bool,0,8,4)) {
-            buttons[4].setText(R.string.cross);
-        }else if(testLine(bool,1,4,7)) {
-            buttons[7].setText(R.string.cross);
-        }else if(testLine(bool,1,7,4)) {
-            buttons[4].setText(R.string.cross);
-        }else if(testLine(bool,1,3,0)) {
-            buttons[0].setText(R.string.cross);
-        }else if(testLine(bool,2,5,8)) {
-            buttons[8].setText(R.string.cross);
-        }else if(testLine(bool,2,8,5)) {
-            buttons[5].setText(R.string.cross);
-        }else if(testLine(bool,2,4,6)) {
-            buttons[6].setText(R.string.cross);
-        }else if(testLine(bool,3,4,5)) {
-            buttons[5].setText(R.string.cross);
-        }else if(testLine(bool,3,5,4)) {
-            buttons[4].setText(R.string.cross);
-        }else if(testLine(bool,3,6,0)) {
-            buttons[0].setText(R.string.cross);
-        }else if(testLine(bool,4,7,1)) {
-            buttons[1].setText(R.string.cross);
-        }else if(testLine(bool,4,5,3)) {
-            buttons[3].setText(R.string.cross);
-        }else if(testLine(bool,5,8,2)) {
-            buttons[2].setText(R.string.cross);
-        }else if(testLine(bool,6,4,2)) {
-            buttons[2].setText(R.string.cross);
-        }else if(testLine(bool,6,2,4)) {
-            buttons[4].setText(R.string.cross);
-        }else if(testLine(bool,6,7,8)) {
-            buttons[8].setText(R.string.cross);
-        }else if(testLine(bool,6,8,7)) {
-            buttons[7].setText(R.string.cross);
-        }else if(testLine(bool,7,8,6)) {
-            buttons[6].setText(R.string.cross);
-        }else if(testLine(bool,8,4,0)) {
-            buttons[0].setText(R.string.cross);
-        }else{
+        int[] bool = Utils.getButtonState(buttons);
+        String test = "X";
+        while (test.matches("X")) {
+            if (testLineX(bool, 0, 1, 2)) {
+                buttons[2].setText(R.string.cross);
+                buttons[2].setEnabled(false);
+                test = "End";
+            } else if (testLineX(bool, 0, 2, 1)) {
+                buttons[1].setText(R.string.cross);
+                buttons[1].setEnabled(false);
+                test = "End";
+            } else if (testLineX(bool, 0, 3, 6)) {
+                buttons[6].setText(R.string.cross);
+                buttons[6].setEnabled(false);
+                test = "End";
+            } else if (testLineX(bool, 0, 6, 3)) {
+                buttons[3].setText(R.string.cross);
+                buttons[3].setEnabled(false);
+                test = "End";
+            } else if (testLineX(bool, 0, 4, 8)) {
+                buttons[8].setText(R.string.cross);
+                buttons[8].setEnabled(false);
+                test = "End";
+            } else if (testLineX(bool, 0, 8, 4)) {
+                buttons[4].setText(R.string.cross);
+                buttons[4].setEnabled(false);
+                test = "End";
+            } else if (testLineX(bool, 1, 4, 7)) {
+                buttons[7].setText(R.string.cross);
+                buttons[7].setEnabled(false);
+                test = "End";
+            } else if (testLineX(bool, 1, 7, 4)) {
+                buttons[4].setText(R.string.cross);
+                buttons[4].setEnabled(false);
+                test = "End";
+            } else if (testLineX(bool, 1, 3, 0)) {
+                buttons[0].setText(R.string.cross);
+                buttons[0].setEnabled(false);
+                test = "End";
+            } else if (testLineX(bool, 2, 5, 8)) {
+                buttons[8].setText(R.string.cross);
+                buttons[8].setEnabled(false);
+                test = "End";
+            } else if (testLineX(bool, 2, 8, 5)) {
+                buttons[5].setText(R.string.cross);
+                buttons[5].setEnabled(false);
+                test = "End";
+            } else if (testLineX(bool, 2, 4, 6)) {
+                buttons[6].setText(R.string.cross);
+                buttons[6].setEnabled(false);
+                test = "End";
+            } else if (testLineX(bool, 3, 4, 5)) {
+                buttons[5].setText(R.string.cross);
+                buttons[5].setEnabled(false);
+                test = "End";
+            } else if (testLineX(bool, 3, 5, 4)) {
+                buttons[4].setText(R.string.cross);
+                buttons[4].setEnabled(false);
+                test = "End";
+            } else if (testLineX(bool, 3, 6, 0)) {
+                buttons[0].setText(R.string.cross);
+                buttons[0].setEnabled(false);
+                test = "End";
+            } else if (testLineX(bool, 4, 7, 1)) {
+                buttons[1].setText(R.string.cross);
+                buttons[1].setEnabled(false);
+                test = "End";
+            } else if (testLineX(bool, 4, 5, 3)) {
+                buttons[3].setText(R.string.cross);
+                buttons[3].setEnabled(false);
+                test = "End";
+            } else if (testLineX(bool, 5, 8, 2)) {
+                buttons[2].setText(R.string.cross);
+                buttons[2].setEnabled(false);
+                test = "End";
+            } else if (testLineX(bool, 6, 4, 2)) {
+                buttons[2].setText(R.string.cross);
+                buttons[2].setEnabled(false);
+                test = "End";
+            } else if (testLineX(bool, 6, 2, 4)) {
+                buttons[4].setText(R.string.cross);
+                buttons[4].setEnabled(false);
+                test = "End";
+            } else if (testLineX(bool, 6, 7, 8)) {
+                buttons[8].setText(R.string.cross);
+                buttons[8].setEnabled(false);
+                test = "End";
+            } else if (testLineX(bool, 6, 8, 7)) {
+                buttons[7].setText(R.string.cross);
+                buttons[7].setEnabled(false);
+                test = "End";
+            } else if (testLineX(bool, 7, 8, 6)) {
+                buttons[6].setText(R.string.cross);
+                buttons[6].setEnabled(false);
+                test = "End";
+            } else if (testLineX(bool, 8, 4, 0)) {
+                buttons[0].setText(R.string.cross);
+                buttons[0].setEnabled(false);
+                test = "End";
+            }else {
+                test = "O";
+            }
+        }
+        while (test.matches("O")) {
+            if (testLineO(bool, 0, 1, 2)) {
+                buttons[2].setText(R.string.cross);
+                buttons[2].setEnabled(false);
+                test = "End";
+            } else if (testLineO(bool, 0, 2, 1)) {
+                buttons[1].setText(R.string.cross);
+                buttons[1].setEnabled(false);
+                test = "End";
+            } else if (testLineO(bool, 0, 3, 6)) {
+                buttons[6].setText(R.string.cross);
+                buttons[6].setEnabled(false);
+                test = "End";
+            } else if (testLineO(bool, 0, 6, 3)) {
+                buttons[3].setText(R.string.cross);
+                buttons[3].setEnabled(false);
+                test = "End";
+            } else if (testLineO(bool, 0, 4, 8)) {
+                buttons[8].setText(R.string.cross);
+                buttons[8].setEnabled(false);
+                test = "End";
+            } else if (testLineO(bool, 0, 8, 4)) {
+                buttons[4].setText(R.string.cross);
+                buttons[4].setEnabled(false);
+                test = "End";
+            } else if (testLineO(bool, 1, 4, 7)) {
+                buttons[7].setText(R.string.cross);
+                buttons[7].setEnabled(false);
+                test = "End";
+            } else if (testLineO(bool, 1, 7, 4)) {
+                buttons[4].setText(R.string.cross);
+                buttons[4].setEnabled(false);
+                test = "End";
+            } else if (testLineO(bool, 1, 3, 0)) {
+                buttons[0].setText(R.string.cross);
+                buttons[0].setEnabled(false);
+                test = "End";
+            } else if (testLineO(bool, 2, 5, 8)) {
+                buttons[8].setText(R.string.cross);
+                buttons[8].setEnabled(false);
+                test = "End";
+            } else if (testLineO(bool, 2, 8, 5)) {
+                buttons[5].setText(R.string.cross);
+                buttons[5].setEnabled(false);
+                test = "End";
+            } else if (testLineO(bool, 2, 4, 6)) {
+                buttons[6].setText(R.string.cross);
+                buttons[6].setEnabled(false);
+                test = "End";
+            } else if (testLineO(bool, 3, 4, 5)) {
+                buttons[5].setText(R.string.cross);
+                buttons[5].setEnabled(false);
+                test = "End";
+            } else if (testLineO(bool, 3, 5, 4)) {
+                buttons[4].setText(R.string.cross);
+                buttons[4].setEnabled(false);
+                test = "End";
+            } else if (testLineO(bool, 3, 6, 0)) {
+                buttons[0].setText(R.string.cross);
+                buttons[0].setEnabled(false);
+                test = "End";
+            } else if (testLineO(bool, 4, 7, 1)) {
+                buttons[1].setText(R.string.cross);
+                buttons[1].setEnabled(false);
+                test = "End";
+            } else if (testLineO(bool, 4, 5, 3)) {
+                buttons[3].setText(R.string.cross);
+                buttons[3].setEnabled(false);
+                test = "End";
+            } else if (testLineO(bool, 5, 8, 2)) {
+                buttons[2].setText(R.string.cross);
+                buttons[2].setEnabled(false);
+                test = "End";
+            } else if (testLineO(bool, 6, 4, 2)) {
+                buttons[2].setText(R.string.cross);
+                buttons[2].setEnabled(false);
+                test = "End";
+            } else if (testLineO(bool, 6, 2, 4)) {
+                buttons[4].setText(R.string.cross);
+                buttons[4].setEnabled(false);
+                test = "End";
+            } else if (testLineO(bool, 6, 7, 8)) {
+                buttons[8].setText(R.string.cross);
+                buttons[8].setEnabled(false);
+                test = "End";
+            } else if (testLineO(bool, 6, 8, 7)) {
+                buttons[7].setText(R.string.cross);
+                buttons[7].setEnabled(false);
+                test = "End";
+            } else if (testLineO(bool, 7, 8, 6)) {
+                buttons[6].setText(R.string.cross);
+                buttons[6].setEnabled(false);
+                test = "End";
+            } else if (testLineO(bool, 8, 4, 0)) {
+                buttons[0].setText(R.string.cross);
+                buttons[0].setEnabled(false);
+                test = "End";
+            }else {
+                test = "R";
+            }
+        }
+
+        while (test.matches("R")) {
             int random = randInt(0, 8);
             while (bool[random] != 0) {
                 random = randInt(0, 8);
             }
             buttons[random].setText(R.string.cross);
             buttons[random].setEnabled(false);
+            test = "End";
         }
     }
+
 
     public static void endGame( Button[] buttons, int player, TextView tv, Button button, boolean computer){
         Utils.disable(buttons);
@@ -339,9 +497,16 @@ public class Utils {
      * @param case3 third button state
      * @return true if two buttons of the same line is checked
      */
-    private static boolean testLine(int[] bool, int case1, int case2, int case3){
+    private static boolean testLineX(int[] bool, int case1, int case2, int case3){
 
-        if(((bool[case1]==1)||(bool[case1]==2))&&((bool[case2] == bool[case1])&&(bool[case3] == 0))) {
+        if((bool[case1]==2)&&((bool[case2] == bool[case1])&&(bool[case3] == 0))) {
+            return true;
+        }
+        return false;
+    }
+    private static boolean testLineO(int[] bool, int case1, int case2, int case3){
+
+        if((bool[case1]==1)&&((bool[case2] == bool[case1])&&(bool[case3] == 0))) {
             return true;
         }
         return false;
