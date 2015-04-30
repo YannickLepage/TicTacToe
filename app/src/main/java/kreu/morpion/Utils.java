@@ -224,6 +224,9 @@ public class Utils {
         button.setEnabled(false);
     }
 
+    /**
+     *if two buttons are played by player, the computer put a cross to block the line
+     */
     public static void computerPlays(Button[] buttons) {
         // TODO Try to refactor and simplify this method
         int [] bool = Utils.getButtonState(buttons);
@@ -328,6 +331,14 @@ public class Utils {
         return randomNum;
     }
 
+    /**
+     *
+     * @param bool state of the board
+     * @param case1 first button state
+     * @param case2 second button state
+     * @param case3 third button state
+     * @return true if two buttons of the same line is checked
+     */
     private static boolean testLine(int[] bool, int case1, int case2, int case3){
 
         if(((bool[case1]==1)||(bool[case1]==2))&&((bool[case2] == bool[case1])&&(bool[case3] == 0))) {
